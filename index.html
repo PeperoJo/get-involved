@@ -7,6 +7,17 @@
     <meta charset='utf-8' />
 
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168371264-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-168371264-1');
+      </script>
+
+
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -41,12 +52,21 @@
 
     <nav class="navbar fixed-top navbar-expand navbar-light bg-white container">
       <a class="navbar-brand navicon" href="#">
-        Get Involved.
+        Get Involved. 🖋
       </a>
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mr-auto name">
           </ul>
+          <ul class="navbar-nav desc1">
+              <li class="nav-item">
+                  <a class="nav-link" href="">Politicians</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="">Elections</a>
+              </li>
+          </ul>
       </div>
+
     </nav>
 
 
@@ -54,7 +74,7 @@
       <div class="about-row row justify-content-center">
         <div class="about-col col-sm-6 text-center">
           <div class="desc1">
-            Easily search for your elected representatives using your zipcode.
+            Easily search for your elected representatives using your zipcode 📍
           </div>
           <div class="">
           </div>
@@ -71,92 +91,107 @@
       </div>
       <!-- levels-->
       <div class="row justify-content-center">
-        <div class='col-sm-6 text-center'>
-          <div>
-            Levels of Government:
+        <div class='col-sm-6 text-center desc1 toggleButtons toggles'>
+          <div class="desc1 padding1">
+            Levels of Government
           </div>
-          <div>
-            <label>
+
+          <div class="btn-group btn-group-toggle btn-block desc1" data-toggle="buttons">
+            <label class="btn btn-outline-primary active">
               <input type="checkbox" id="show_local_results" value="Local">Local
             </label>
-            <label>
+            <label class="btn btn-outline-primary active">
               <input type="checkbox" id="show_county_results" value="County">County
             </label>
-            <label>
+            <label class="btn btn-outline-primary active">
               <input type="checkbox" id="show_state_results" value="State">State
             </label>
-            <label>
+            <label class="btn btn-outline-primary active" >
               <input type="checkbox" id="show_federal_results" value="Federal">Federal
             </label>
           </div>
+
         </div>
       </div>
 
       <!-- note -->
       <div class="row justify-content-center">
         <div class="col-sm-6 alert alert-secondary" role="alert">
-          Note: Data comes from the <a target='_blank' href='https://developers.google.com/civic-information/'>Google Civic Information API</a>, which does not have 100% coverage of all representatives. If you notice an issue with the data, please <a target='_blank' href='https://docs.google.com/forms/d/e/1FAIpQLScFpFTOkTpm0YoerLLprY_ySS9PRXLsu27SM01hebHqkefW2Q/viewform'>report it to Google</a>.
+          <blockquote class="blockquote">
+            <p class="mb-0">"But the elected officials who matter most in reforming police departments and the criminal justice system work at the state and local levels.""</p>
+            <footer class="blockquote-footer desc1">Barack Obama</footer>
+          </blockquote>
+          <a href='https://medium.com/@BarackObama/how-to-make-this-moment-the-turning-point-for-real-change-9fa209806067'>Check out his article.</a>
         </div>
       </div>
 
 
     <!-- rep data -->
-      <div class="row justify-content-center">
-      <div class='col-sm-12' id="local-container">
-        <h3 class='text-center' id="local-name"></h3>
-        <div id="local-results" class=" ">
-          <div class="row justify-content-center">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">Representative</div>
-            <div class="col-sm-3">  Office</div>
-            <div class="col-sm-3"> Address</div>
-            <div class="col-sm-1">  Links</div>
+
+      <div class="row justify-content-center repData" id="response-container" style="display:none;">
+
+        <div class='col-sm-12' id="local-container">
+          <h3 class='text-center locationHeader' id="local-name"></h3>
+          <div id="local-results" class=" ">
+            <div class="row justify-content-center">
+              <div class="col-sm-1 rowHeader"></div>
+              <div class="col-sm-3 rowHeader">Representative</div>
+              <div class="col-sm-3 rowHeader">  Office</div>
+              <div class="col-sm-3 rowHeader"> Address</div>
+              <div class="col-sm-2 rowHeader">  Links</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class='col-sm-12' id="county-container">
-        <h3 class='text-center' id="county-name"></h3>
-        <div id="county-results" class=" ">
-          <div class="row justify-content-center">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">Representative</div>
-            <div class="col-sm-3">  Office</div>
-            <div class="col-sm-3"> Address</div>
-            <div class="col-sm-1">  Links</div>
+        <div class='col-sm-12' id="county-container">
+          <h3 class='text-center locationHeader' id="county-name"></h3>
+          <div id="county-results" class=" ">
+            <div class="row justify-content-center">
+              <div class="col-sm-1 rowHeader"></div>
+              <div class="col-sm-3 rowHeader">Representative</div>
+              <div class="col-sm-3 rowHeader">  Office</div>
+              <div class="col-sm-3 rowHeader"> Address</div>
+              <div class="col-sm-2 rowHeader">  Links</div>
+            </div>
           </div>
         </div>
-      </div>
 
 
-      <div class='col-sm-12' id='state-container'>
-        <h3 class='text-center' id="state-name"></h3>
-        <div id="state-results" class=" ">
-          <div class="row justify-content-center">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">Representative</div>
-            <div class="col-sm-3">  Office</div>
-            <div class="col-sm-3"> Address</div>
-            <div class="col-sm-1">  Links</div>
+        <div class='col-sm-12' id='state-container'>
+          <h3 class='text-center locationHeader' id="state-name"></h3>
+          <div id="state-results" class=" ">
+            <div class="row justify-content-center">
+              <div class="col-sm-1 rowHeader"></div>
+              <div class="col-sm-3 rowHeader">Representative</div>
+              <div class="col-sm-3 rowHeader">  Office</div>
+              <div class="col-sm-3 rowHeader"> Address</div>
+              <div class="col-sm-2 rowHeader">  Links</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class='col-sm-12' id='federal-container'>
-        <h3 id='federal-name' class='text-center'>United States Federal Government</h3>
-        <div id="federal-results" class=" ">
-          <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">Representative</div>
-            <div class="col-sm-3">  Office</div>
-            <div class="col-sm-3"> Address</div>
-            <div class="col-sm-1">  Links</div>
+
+        <div class='col-sm-12' id='federal-container'>
+          <h3 class='text-center locationHeader' id="federal-name">United States Federal Government</h3>
+          <div id="federal-results" class=" ">
+            <div class="row justify-content-center">
+              <div class="col-sm-1 rowHeader"></div>
+              <div class="col-sm-3 rowHeader">Representative</div>
+              <div class="col-sm-3 rowHeader">  Office</div>
+              <div class="col-sm-3 rowHeader"> Address</div>
+              <div class="col-sm-2 rowHeader">  Links</div>
+            </div>
           </div>
-        </div>
         </div>
 
       </div>
       <!-- end of rep list -->
+
+      <div class="row justify-content-center">
+        <div class="col-sm-6 alert alert-secondary desc1" role="alert">
+          ⚠️ Data is from the <a target='_blank' href='https://developers.google.com/civic-information/'>Google Civic Information API</a>, which does not have 100% coverage of all representatives. If you notice an issue with the data, please <a target='_blank' href='https://docs.google.com/forms/d/e/1FAIpQLScFpFTOkTpm0YoerLLprY_ySS9PRXLsu27SM01hebHqkefW2Q/viewform'>report it to Google</a>. Huge thanks to <a target='_blank' href='https://datamade.us/'>DataMade</a> for a wonderful open source project.
+        </div>
+      </div>
 
 
     </div>
@@ -170,7 +205,7 @@
                   <% if (info.person.photoUrl) { %>
                       <img class="img-rounded headshot" src="<%= info.person.photoUrl %>" alt="<%= info.person.name %>" title="<%= info.person.name %>" />
                   <% } else { %>
-                      <img class="img-rounded headshot" src="images/blank-person.jpg" alt="<%= info.person.name %>" title="<%= info.person.name %>" />
+                      <img class="img-rounded headshot" src="images/blank-person.png" alt="<%= info.person.name %>" title="<%= info.person.name %>" />
                   <% } %>
               </div>
               <div class="col-sm-3">
@@ -194,7 +229,7 @@
                       <% }) %>
                   <% } %>
               </div>
-              <div class="col-sm-1">
+              <div class="col-sm-2">
                   <% if (info.channels || info.urls){ %>
                       <span class='visible-xs-inline visible-sm-inline'>
                           <% if (info.channels){ %>

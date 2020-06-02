@@ -95,6 +95,8 @@ function addressSearch() {
         // console.log(data);
         // console.log(divisions);
 
+
+
         if (divisions === undefined) {
             $("#no-response-container").show();
             $("#response-container").hide();
